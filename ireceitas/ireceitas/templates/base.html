@@ -74,20 +74,25 @@
   </header>
 
   {% block conteudo %} {% endblock %}
+   <div class="conteudo">
+    <h1></h1>
+  </div>
 
   <footer>
     <div class="boxs">
       <h3>Início</h3>
       <ul>
-        <li class="inicio">Home</li>
-        <li class="inicio">Perfil</li>
+        <a href="{{ url_for('usuario.perfil')}}">
+          <li class="inicio">Perfil</li>
+        </a>
       </ul>
     </div>
     <div class="boxs">
       <h3>Suporte</h3>
       <ul>
-        <li class="suporte">Contato</li>
-      </ul>
+        <a href="{{ url_for('contato.contato')}}">
+          <li class="suporte">Contato</li>
+        </a>
     </div>
     <div class="boxs">
       <h3>Informações</h3>
