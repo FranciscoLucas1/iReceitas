@@ -37,6 +37,7 @@
           background-color: #FFF;
           color: #D57700;
         }
+
     </style>
 {% endblock %}
 
@@ -73,7 +74,7 @@
 
     var busca = null;
     var array = JSON.parse('{{nomes_usuarios|tojson}}');
-
+    var id = JSON.parse('{{id_usuarios|tojson}}');
     $(document).ready(function(){
       $('#nome-input').bind('input',function(){
         busca = $(this).val().toLowerCase();
@@ -81,22 +82,26 @@
         if(busca !== ''){
           var corresponde = false;
           var saida = Array();
+          var ids = Array();
           var quantidade = 0;
+          var j = 0;
           for(var key in array){
-
             corresponde = array[key].toLowerCase().indexOf(busca) >= 0;
             if(corresponde){
               saida.push(array[key]);
+              ids.push(id[j]);
               quantidade += 1;
             }
+            j+=1;
           }
           if(quantidade){
+            var i = 0;
             $('#saidaTxt').text('');
             $('#quantidade').html(quantidade+' resultados!<br><br>');
             for(var ind in saida){
-              $('#saidaTxt').append("<li>"+saida[ind]+"</li>"+"<br>");
-            //   $( "#saidaTxt" ).addClass( ["link-warning", "list-group-item", "bg-secondary", "fs-5" ]);
-              $( "#saidaTxt" ).addClass( ["list-group-item", "fs-5" ]);
+              $('#saidaTxt').append('<li>'+'<a href="/usuario/perfil_publico/'+ids[i]+'">'+saida[ind]+ ids[i]+'</a>'+'</li>'+'<br>');
+              $("#saidaTxt" ).addClass( ["list-group-item", "fs-5", "bg-secondary"]);
+              i +=1;
             }
 
           }else{
