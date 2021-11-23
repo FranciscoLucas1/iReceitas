@@ -63,7 +63,7 @@
         <hr>
         <strong id="quantidade"></strong>
         <ul class="list-group list-unstyled">
-            <span id="saidaTxt">Nenhum resultado...</span><br>
+            <span id="saidaTxt" class="list-group-item fs-5">Nenhum resultado...</span><br>
         </ul>
       </div>
     </div>
@@ -99,8 +99,7 @@
             $('#saidaTxt').text('');
             $('#quantidade').html(quantidade+' resultados!<br><br>');
             for(var ind in saida){
-              $('#saidaTxt').append('<li>'+'<a href="/usuario/perfil_publico/'+ids[i]+'">'+saida[ind]+ ids[i]+'</a>'+'</li>'+'<br>');
-              $("#saidaTxt" ).addClass( ["list-group-item", "fs-5", "bg-secondary"]);
+              $('#saidaTxt').append('<li>'+'<a href="/usuario/perfil_publico/'+ids[i]+'"style="color: #D57700">'+saida[ind]+ ids[i]+'</a>'+'</li>'+'<br>');
               i +=1;
             }
 
