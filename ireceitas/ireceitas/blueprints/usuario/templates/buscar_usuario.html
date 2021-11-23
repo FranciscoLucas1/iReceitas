@@ -75,6 +75,7 @@
     var busca = null;
     var array = JSON.parse('{{nomes_usuarios|tojson}}');
     var id = JSON.parse('{{id_usuarios|tojson}}');
+    var foto  = JSON.parse('{{fotos_usuarios|tojson}}');
     $(document).ready(function(){
       $('#nome-input').bind('input',function(){
         busca = $(this).val().toLowerCase();
@@ -83,6 +84,7 @@
           var corresponde = false;
           var saida = Array();
           var ids = Array();
+          var fotos = Array();
           var quantidade = 0;
           var j = 0;
           for(var key in array){
@@ -90,6 +92,7 @@
             if(corresponde){
               saida.push(array[key]);
               ids.push(id[j]);
+              fotos.push(foto[j]);
               quantidade += 1;
             }
             j+=1;
@@ -99,6 +102,7 @@
             $('#saidaTxt').text('');
             $('#quantidade').html(quantidade+' resultados!<br><br>');
             for(var ind in saida){
+              $('#saidaTxt').append('<img src="/usuario/imagem/'+fotos[i]+'" class="rounded mx-auto d-block" alt="..." style="width: 10rem;">')
               $('#saidaTxt').append('<li>'+'<a href="/usuario/perfil_publico/'+ids[i]+'"style="color: #D57700">'+saida[ind]+'</a>'+'</li>'+'<br>');
               i +=1;
             }
