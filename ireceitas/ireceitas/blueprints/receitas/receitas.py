@@ -4,8 +4,10 @@ from flask import Blueprint, render_template
 bp = Blueprint('receitas', __name__, url_prefix='/receitas', template_folder='templates')
 
 
-# @bp.route('/')
-# def root():
+# @bp.get('/buscarReceitas')
+# def buscarReceitas():
+
+#     nomes_receitas = Receitas.query.order_by(Receitas.titulo).all()
 #     return 'Hello from receitas'
 
 @bp.route('/acompanhamentos')

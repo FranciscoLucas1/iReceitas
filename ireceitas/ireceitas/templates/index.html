@@ -10,6 +10,13 @@
 
 
 {% block conteudo %}
+
+    <hr>
+    <strong id="quantidade"></strong>
+    <ul class="list-group list-unstyled">
+        <span id="saidaTxt">Nenhum resultado...</span><br>
+    </ul>
+
       <center>
         <div class="linha-horizontal"></div>
 
@@ -202,5 +209,50 @@
   </ul>
 </div>
 </body>
+
+<script>
+
+    var busca = null;
+    var array = JSON.parse('{{nomes_receitas|tojson}}');
+
+    $(document).ready(function(){
+      $('#entrada').bind('input',function(){
+        busca = $(this).val().toLowerCase();
+
+        if(busca !== ''){
+          var corresponde = false;
+          var saida = Array();
+          var quantidade = 0;
+          for(var key in array){
+
+            corresponde = array[key].toLowerCase().indexOf(busca) >= 0;
+            if(corresponde){
+              saida.push(array[key]);
+              quantidade += 1;
+            }
+          }
+          if(quantidade){
+            $('#saidaTxt').text('');
+            $('#quantidade').html(quantidade+' resultados!<br><br>');
+            for(var ind in saida){
+              $('#saidaTxt').append("<li>"+saida[ind]+"</li>"+"<br>");
+            //   $( "#saidaTxt" ).addClass( ["link-warning", "list-group-item", "bg-secondary", "fs-5" ]);
+              $( "#saidaTxt" ).addClass( ["list-group-item", "fs-5" ]);
+            }
+
+          }else{
+            $('#quantidade').html('');
+            $('#saidaTxt').text('Nenhum resultado...');
+          }
+
+        }else{
+          $('#quantidade').html('');
+          $('#saidaTxt').text('Nenhum resultado...');
+        }
+
+      });
+    });
+
+  </script>
 
 {% endblock %}

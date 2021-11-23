@@ -11,6 +11,10 @@
   <script src="/static/js/bootstrap.bundle.min.js"> </script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"> </script>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+  integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+  crossorigin="anonymous"></script>
   {% block css %}{% endblock %}
   {% block css2 %} {% endblock %}
   {% block icon %} {% endblock %}
@@ -23,11 +27,12 @@
     <a href="{{url_for('root')}}"><img src="https://media.discordapp.net/attachments/719989066808164492/895300449488494622/unknown__1_-removebg-preview_1.png" alt="" class="logo"></a>
 
     <section class="caixa-search">
-      <input class="caixa-texto" type="text" name="" placeholder="">
-      <a class="botao-search" href="#">
+      <input id="entrada" class="caixa-texto" type="text" name="" placeholder="">
+      <a class="botao-search" href="/usuario/perfil">
         <i class="fas fa-search"></i>
       </a>
     </section>
+
 
     <nav>
       <ul class="itens">
@@ -76,6 +81,10 @@
 
   </header>
 
+    <!-- <hr>-->
+    <!--<strong id="quantidade"></strong>-->
+    <!--<span id="saidaTxt">Nenhum resultado...</span><br><br>-->
+
   {% block conteudo %} {% endblock %}
 
   <footer class="footer">
@@ -112,6 +121,50 @@
     </ul>
     <p>&copy;2021 iReceitas | All Rights Reserved </p>
   </footer>
+
+  <!--<script>-->
+
+  <!--  var busca = null;-->
+  <!--  var array = ["Tapioca", "Ovo cozido", "Cuscuz"];-->
+
+  <!--  $(document).ready(function(){-->
+  <!--    $('#entrada').bind('input',function(){-->
+  <!--      busca = $(this).val().toLowerCase();-->
+
+  <!--      if(busca !== ''){-->
+  <!--        var corresponde = false;-->
+  <!--        var saida = Array();-->
+  <!--        var quantidade = 0;-->
+  <!--        for(var key in array){-->
+
+  <!--          corresponde = array[key].toLowerCase().indexOf(busca) >= 0;-->
+  <!--          if(corresponde){-->
+  <!--            saida.push(array[key]);-->
+  <!--            quantidade += 1;-->
+  <!--          }-->
+  <!--        }-->
+  <!--        if(quantidade){-->
+  <!--          $('#saidaTxt').text('');-->
+  <!--          $('#quantidade').html(quantidade+' resultados!<br><br>');-->
+  <!--          for(var ind in saida){-->
+  <!--            $('#saidaTxt').append("<li>"+saida[ind]+"</li>"+"<br>");-->
+  <!--          }-->
+
+  <!--        }else{-->
+  <!--          $('#quantidade').html('');-->
+  <!--          $('#saidaTxt').text('Nenhum resultado...');-->
+  <!--        }-->
+
+  <!--      }else{-->
+  <!--        $('#quantidade').html('');-->
+  <!--        $('#saidaTxt').text('Nenhum resultado...');-->
+  <!--      }-->
+
+  <!--    });-->
+  <!--  });-->
+
+  <!--</script>-->
+
 </body>
 
 </html>
