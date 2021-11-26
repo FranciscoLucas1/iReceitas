@@ -1,4 +1,4 @@
-# iReceitas
+## iReceitas
 
 **Um site de receitas dos mais variados tipos. Encontre sua receita aqui.**
 
@@ -24,3 +24,8 @@
 - Trello
 - Slack
 
+## Sobre
+```python
+print("Um site de receitas dos mais variados tipos. Encontre sua receita aqui."
+)
+```
